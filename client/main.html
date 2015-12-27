@@ -1,0 +1,38 @@
+<head>
+    <title>Stylish</title>
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    {{> header}}
+</body>
+
+<template name="main">
+    {{#if currentUser}}
+            <div class="container">
+            {{#if notes}}
+                {{#each notes}}
+                    {{> note}}
+                {{/each}}
+            {{else}}
+                <div class="photo">
+                    <h4 class="usertag">Woops :/</h4>
+                    <h5 class="descriptionTag">There are currently no uploads available for display. Be the first to upload a photo!</h5>
+                </div>
+            {{/if}}
+            </div>
+        {{> footer}}
+    {{else}}
+        {{> login}}
+    {{/if}}
+</template>
+
+<template name="note">
+    <div class="photo" id={{_id}}>
+        <h4 class="usertag">{{userName}}</h4>
+        <img class="uploadedpic" src="{{photo}}">
+        <h5 class="descriptionTag">{{userName}}: {{description}}</h5>
+    </div>
+</template>
