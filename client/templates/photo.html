@@ -3,26 +3,17 @@
         <h1>Take a Picture!</h1>
         <form class="form-signin" id="picsub">
             <input type="text" class="form-control" placeholder="Caption your photo!" id="message-input">
-            <nav class="navbar navbar-inverse navbar-fixed-bottom">
-                <div class="container">
-                    <span class="glyphicon glyphicon-camera capture" id="logIcon"></span>
-                </div>
-            </nav>
         </form>
+        <div class="form-signin">
+            <button class="btn btn-lg btn-stylish btn-block btn-register .capture">Capture Photo</button>    
+        </div>
+        
     </div>
 </template>
 
-<template name="photo-error">
-    <div class="alert alert-danger" role="alert">You must have a caption for your photo.</div>
+<template name="photo_error">
     <div class="container">
-        <h1>Take a Picture!</h1>
-        <form class="form-signin">
-            <input type="text" class="form-control" placeholder="Caption your photo!" name="message-input">
-        </form>
+        <div class="alert alert-danger" role="alert">You must have a caption for your photo.</div>
     </div>
-    <nav class="navbar navbar-inverse navbar-fixed-bottom">
-        <div class="container">
-            <span class="glyphicon glyphicon-camera capture" id="logIcon"></span>
-        </div>
-    </nav>
+    {{> photo}}
 </template>

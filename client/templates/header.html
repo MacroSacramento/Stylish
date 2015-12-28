@@ -2,8 +2,11 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Stylish</a>
+                <a class="navbar-brand" href="/"><b>Stylish</b></a>
             </div>
+            {{#if currentUser}}
+                <span class="glyphicon glyphicon-log-out logout navbar-right" id="logIcon"></span>
+            {{/if}}
         </div>
     </nav>    
 </template>

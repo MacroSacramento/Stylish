@@ -7,12 +7,14 @@
 
 <body>
     {{> header}}
+    
+    {{> footer}}
 </body>
 
 <template name="main">
     {{#if currentUser}}
-            <div class="container">
-            {{#if notes}}
+        <div class="container">
+            {{#if postExists}}
                 {{#each notes}}
                     {{> note}}
                 {{/each}}
@@ -22,17 +24,30 @@
                     <h5 class="descriptionTag">There are currently no uploads available for display. Be the first to upload a photo!</h5>
                 </div>
             {{/if}}
-            </div>
+        </div>
         {{> footer}}
     {{else}}
         {{> login}}
-    {{/if}}
+    {{/if}} 
 </template>
 
 <template name="note">
     <div class="photo" id={{_id}}>
-        <h4 class="usertag">{{userName}}</h4>
-        <img class="uploadedpic" src="{{photo}}">
-        <h5 class="descriptionTag">{{userName}}: {{description}}</h5>
+        {{#if photo}}
+            <ul class="nav navbar-nav">
+                <h4 class="usertag">{{userName}}</h4>
+                {{#if checkAdmin}}
+                    <span class="glyphicon glyphicon-remove delete" id="logIcon"></span>
+                {{/if}}
+            </ul>
+            <img class="uploadedpic" src="{{photo}}">
+            <h5 class="descriptionTag">{{userName}}: {{description}}</h5>
+        {{else}}
+            <h4 class="usertag">{{userName}}</h4>
+            {{#if checkAdmin}}
+                <span class="glyphicon glyphicon-remove delete" id="logIcon"></span>
+            {{/if}}
+            <h5 class="descriptionTag">{{description}}</h5>
+        {{/if}}
     </div>
 </template>

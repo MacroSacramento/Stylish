@@ -13,19 +13,7 @@
     </div>
 </template>
 
-<template name="login-error">
+<template name="login_error">
     <div class="alert alert-danger" role="alert">Your account could not be found or password is incorrect.</div>
-    <div class="container login">
-        <h1>Sign In</h1>
-        <form class="form-signin">
-            <input type="text" class="form-control" placeholder="Username" name="loginUsername">
-            <input type="password" class="form-control" placeholder="Password" name="loginPassword">
-            <input type="submit" class="btn btn-lg btn-stylish btn-block" value="Login">
-            
-        </form>
-        
-        <div class="form-signin">
-            <a href="/register" class="btn btn-lg btn-stylish btn-block btn-register">Register</a>    
-        </div>
-    </div>
+    {{> login}}
 </template>

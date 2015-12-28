@@ -1,3 +1,7 @@
+@font-face{
+    font-family: Viner;
+    src: url(VINERITC.TTF)
+}
 body{
 	padding-top: 50px;
     background-color: #eee;
@@ -13,6 +17,7 @@ body{
 }
 .navbar-brand{
     color: white;
+    font-family: Viner;
 }
 #logIcon{
     margin-top: 10px;
@@ -28,6 +33,10 @@ body{
     background-color: #333;
 }
 .btn-stylish:hover{
+    background-color: #9d9d9d;;
+    color: #333;
+}
+.btn-stylish:focus{
     background-color: #9d9d9d;;
     color: #333;
 }
