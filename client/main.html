@@ -7,8 +7,9 @@
 
 <body>
     {{> header}}
-    
-    {{> footer}}
+    {{#if currentUser}}
+        {{> footer}}
+    {{/if}}
 </body>
 
 <template name="main">
@@ -25,7 +26,6 @@
                 </div>
             {{/if}}
         </div>
-        {{> footer}}
     {{else}}
         {{> login}}
     {{/if}} 

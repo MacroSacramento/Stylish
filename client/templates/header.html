@@ -3,10 +3,10 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/"><b>Stylish</b></a>
+                {{#if currentUser}}
+                    <span class="glyphicon glyphicon-log-out logout" id="logIcon"></span>
+                {{/if}}
             </div>
-            {{#if currentUser}}
-                <span class="glyphicon glyphicon-log-out logout navbar-right" id="logIcon"></span>
-            {{/if}}
         </div>
     </nav>    
 </template>
