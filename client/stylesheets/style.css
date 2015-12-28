@@ -63,6 +63,8 @@ body{
 }
 .logout{
     float: right;
+}.capture{
+    margin-top: 10px;
 }
 /*http://getbootstrap.com/examples/signin/*/
 .form-signin {

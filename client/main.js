@@ -7,7 +7,7 @@ var cameraOptions = {
 };
 
 Template.photo.events({
-    'click .capture': function(event, template){
+    'click .capture': function(events, template){
         MeteorCamera.getPicture(cameraOptions, function(error, data){
             if (error) {
                 // e.g. camera permission denied, or unsupported browser (Safari on iOS, looking at you)

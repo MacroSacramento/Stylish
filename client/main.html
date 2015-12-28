@@ -15,16 +15,9 @@
 <template name="main">
     {{#if currentUser}}
         <div class="container">
-            {{#if postExists}}
                 {{#each notes}}
                     {{> note}}
                 {{/each}}
-            {{else}}
-                <div class="photo">
-                    <h4 class="usertag">Woops :/</h4>
-                    <h5 class="descriptionTag">There are currently no uploads available for display. Be the first to upload a photo!</h5>
-                </div>
-            {{/if}}
         </div>
     {{else}}
         {{> login}}
