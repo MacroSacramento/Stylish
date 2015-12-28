@@ -7,19 +7,17 @@ var cameraOptions = {
 };
 
 Template.photo.events({
-    'click .capture': function(events, template){
+    'click .capture': function(event, template){
         MeteorCamera.getPicture(cameraOptions, function(error, data){
             if (error) {
-                // e.g. camera permission denied, or unsupported browser (Safari on iOS, looking at you)
                 console.log(error);
             } else {
-                // Insert a note in the client's collection; Meteor will persist it on the server.
                 var description = template.find('#message-input').value;
                 Notes.insert({
                     photo: data,
                     timestamp: new Date(),
                     userId: Meteor.userId(),
-                    userName: Meteor.user().username,  // denormalize so we don't have to look up the user's name separately
+                    userName: Meteor.user().username,
                     description: description
                 });
                 Router.go('/') 
@@ -30,23 +28,21 @@ Template.photo.events({
     
     'form submit': function(){
         return false;
-    }    
+    }  
 });
 
 Template.photo_error.events({
     'click .capture': function(event, template){
         MeteorCamera.getPicture(cameraOptions, function(error, data){
             if (error) {
-                // e.g. camera permission denied, or unsupported browser (Safari on iOS, looking at you)
                 console.log(error);
             } else {
-                // Insert a note in the client's collection; Meteor will persist it on the server.
                 var description = template.find('#message-input').value;
                 Notes.insert({
                     photo: data,
                     timestamp: new Date(),
                     userId: Meteor.userId(),
-                    userName: Meteor.user().username,  // denormalize so we don't have to look up the user's name separately
+                    userName: Meteor.user().username,
                     description: description
                 });
                 Router.go('/') 
@@ -66,11 +62,14 @@ Template.main.helpers({
             sort: { timestamp: -1 }
          });
     },
-    
-    postsExist: function(){
-        return Meteor.call('checkPosts');
-    }
-        
+       
+    postsExist: function(){        
+        if(Notes.find().count() === 0){
+            return false;
+        } else {
+            return true;
+        }
+    }     
 })
     
 Template.footer.helpers({

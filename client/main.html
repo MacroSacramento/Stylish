@@ -15,9 +15,16 @@
 <template name="main">
     {{#if currentUser}}
         <div class="container">
+            {{#if postsExist}}
                 {{#each notes}}
                     {{> note}}
                 {{/each}}
+            {{else}}
+                <div class="photo">
+                    <h4 class="usertag">Woops &#128542;</h4>
+                    <h5 class="descriptionTag">There are currently no uploads available for display. Be the first to upload a photo!</h5>
+                </div>
+            {{/if}}
         </div>
     {{else}}
         {{> login}}
@@ -27,12 +34,11 @@
 <template name="note">
     <div class="photo" id={{_id}}>
         {{#if photo}}
-            <ul class="nav navbar-nav">
-                <h4 class="usertag">{{userName}}</h4>
-                {{#if checkAdmin}}
-                    <span class="glyphicon glyphicon-remove delete" id="logIcon"></span>
-                {{/if}}
-            </ul>
+                <h4 class="usertag"><div class="username">{{userName}}</div>
+                    {{#if checkAdmin}}
+                        <span class="glyphicon glyphicon-remove delete" id="logIcon"></span>
+                    {{/if}}
+                </h4>
             <img class="uploadedpic" src="{{photo}}">
             <h5 class="descriptionTag">{{userName}}: {{description}}</h5>
         {{else}}
