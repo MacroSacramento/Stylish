@@ -1,5 +1,3 @@
-Award winning submission for the [Future Business Leaders of America](fbla-pbl.org) Mobile Application Development Competition and placed 4th at the state level and competed nationally in Atlanta, Georgia. The app was built using [Meteor](meteor.com) on [Ubuntu](ubuntu.com) Linux with Microsoft's [Visual Studio Code](https://code.visualstudio.com/) IDE and Google's [Android Studio](http://developer.android.com/sdk/index.html) build tools.
-
 ## How to install for development
 cd into the directory where this project is located and run the `meteor install DEPENDENCY` where `DEPENDENCY` are the following:
 
