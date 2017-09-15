@@ -1,3 +1,4 @@
+# Stylish
 ## How to install for development
 cd into the directory where this project is located and run the `meteor install DEPENDENCY` where `DEPENDENCY` are the following:
 
